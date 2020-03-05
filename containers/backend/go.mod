@@ -1,4 +1,4 @@
-module github.com/tetsuzawa/voyageapi/containers/backend/containers/backend
+module github.com/tetsuzawa/voyageapi/containers/backend
 
 go 1.13
 

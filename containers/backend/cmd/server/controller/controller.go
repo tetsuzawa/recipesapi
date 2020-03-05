@@ -2,10 +2,11 @@ package controller
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
 )
 
 // Controller - リクエストを処理しアプリケーションコアに渡す
