@@ -3,7 +3,7 @@ package env
 import (
 	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
-	"github.com/tetsuzawa/voyageapi/pkg/mysql"
+	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/mysql"
 )
 
 func ReadMysqlEnv(envFile string) (mysql.Config, error) {

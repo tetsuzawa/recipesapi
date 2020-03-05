@@ -7,8 +7,8 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/tetsuzawa/voyageapi/cmd/server/controller"
-	"github.com/tetsuzawa/voyageapi/internal/core"
+	"github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/controller"
+	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
 )
 
 // Injectors from wire.go:

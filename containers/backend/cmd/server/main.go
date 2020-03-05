@@ -9,9 +9,9 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/swaggo/echo-swagger"
 
-	_ "github.com/tetsuzawa/voyageapi/cmd/server/docs"
-	"github.com/tetsuzawa/voyageapi/pkg/env"
-	"github.com/tetsuzawa/voyageapi/pkg/mysql"
+	_ "github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/docs"
+	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/env"
+	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/mysql"
 )
 
 var e = createMux()
