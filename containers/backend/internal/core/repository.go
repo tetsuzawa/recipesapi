@@ -2,7 +2,7 @@ package core
 
 import "context"
 
-// Repository todo
+// Repository - アプリケーションコアからDBへのアダプター
 type Repository interface {
 	CreateRecipe(ctx context.Context, recipe Recipe) (Recipe, error)
 	ReadRecipes(ctx context.Context) ([]Recipe, error)

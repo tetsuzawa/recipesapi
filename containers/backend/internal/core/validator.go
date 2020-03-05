@@ -2,12 +2,14 @@ package core
 
 import "github.com/go-playground/validator/v10"
 
+// Validate - バリデータの実体. 外部に公開する.
 var Validate *validator.Validate
 
 func init() {
 	Validate = validator.New()
 }
 
+// ValidateRecipe - Recipeのバリデーションの関数
 func ValidateRecipe(recipe *Recipe) []string {
 	var errorMessages []string
 

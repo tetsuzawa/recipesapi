@@ -2,7 +2,7 @@ package core
 
 import "time"
 
-// Recipe TODO
+// Recipe - Recipeのモデル. 外部に公開する.
 type Recipe struct {
 	ID          uint       `json:"id,omitempty"`
 	Title       string     `json:"title" validate:"required"`

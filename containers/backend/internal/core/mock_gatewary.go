@@ -10,27 +10,28 @@ import (
 
 var src = rand.NewSource(time.Now().UnixNano())
 
-// MockGateway ...
+// MockGateway - MockDBのアダプターの構造体
 type MockGateway struct {
 	db *MockDB
 }
 
-// MockDB ...
+// MockDB - テスト・開発用のDB
 type MockDB struct {
 	mu   sync.RWMutex
 	data map[uint]Recipe
 }
 
-// NewMockDB ...s
+// NewMockDB - テスト・開発用のDBのコンストラクタ
 func NewMockDB() *MockDB {
 	return &MockDB{data: make(map[uint]Recipe)}
 }
 
-// NewMockGateway ...
+// NewMockGateway - MockDBのアダプターの構造体のコンストラクタ
 func NewMockGateway(db *MockDB) Repository {
 	return &MockGateway{db}
 }
 
+// CreateRecipe - レシピを作成
 func (r *MockGateway) CreateRecipe(ctx context.Context, recipe Recipe) (Recipe, error) {
 	r.db.mu.Lock()
 	defer r.db.mu.Unlock()
@@ -53,6 +54,7 @@ func (r *MockGateway) CreateRecipe(ctx context.Context, recipe Recipe) (Recipe, 
 	return recipe, nil
 }
 
+// ReadRecipes - 全てのレシピを取得
 func (r *MockGateway) ReadRecipes(ctx context.Context) ([]Recipe, error) {
 	var recipes []Recipe
 	for _, v := range r.db.data {
@@ -61,11 +63,13 @@ func (r *MockGateway) ReadRecipes(ctx context.Context) ([]Recipe, error) {
 	return recipes, nil
 }
 
+// ReadRecipe - 指定したIDのレシピを取得
 func (r *MockGateway) ReadRecipe(ctx context.Context, id uint) (Recipe, error) {
 	recipe := r.db.data[id]
 	return recipe, nil
 }
 
+// UpdateRecipe - 指定したIDのレシピを更新
 func (r *MockGateway) UpdateRecipe(ctx context.Context, id uint, recipe Recipe) (Recipe, error) {
 	var preRecipe Recipe
 	preRecipe = r.db.data[id]
@@ -78,6 +82,7 @@ func (r *MockGateway) UpdateRecipe(ctx context.Context, id uint, recipe Recipe) 
 	return recipe, nil
 }
 
+// DeleteRecipe - 指定したIDのレシピを削除
 func (r *MockGateway) DeleteRecipe(ctx context.Context, recipe Recipe) (bool, error) {
 	delete(r.db.data, recipe.ID)
 	return true, nil

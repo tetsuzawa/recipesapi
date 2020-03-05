@@ -4,17 +4,17 @@ import (
 	"context"
 )
 
-// Provider TODO
+// Provider - アプリケーションコアの構造体
 type Provider struct {
 	r Repository
 }
 
-// NewProvider TODO
+// NewProvider - アプリケーションコアの構造体のコンストラクタ
 func NewProvider(r Repository) *Provider {
 	return &Provider{r}
 }
 
-// CreateRecipe TODO
+// CreateRecipe - レシピを作成
 func (p *Provider) CreateRecipe(ctx context.Context, title, makingTime, serves, ingredients string, cost int) (Recipe, error) {
 	recipe := Recipe{
 		Title:       title,
@@ -32,6 +32,7 @@ func (p *Provider) CreateRecipe(ctx context.Context, title, makingTime, serves, 
 	return recipe, nil
 }
 
+// ReadRecipes - 全てのレシピを取得
 func (p *Provider) ReadRecipes(ctx context.Context) ([]Recipe, error) {
 	recipes, err := p.r.ReadRecipes(ctx)
 	if err != nil {
@@ -40,6 +41,7 @@ func (p *Provider) ReadRecipes(ctx context.Context) ([]Recipe, error) {
 	return recipes, nil
 }
 
+// ReadRecipe - 指定したIDのレシピを取得
 func (p *Provider) ReadRecipe(ctx context.Context, id uint) (Recipe, error) {
 	recipe, err := p.r.ReadRecipe(ctx, id)
 	if err != nil {
@@ -48,6 +50,7 @@ func (p *Provider) ReadRecipe(ctx context.Context, id uint) (Recipe, error) {
 	return recipe, nil
 }
 
+// UpdateRecipe - 指定したIDのレシピを更新
 func (p *Provider) UpdateRecipe(ctx context.Context, id uint, title, makingTime, serves, ingredients string, cost int) (Recipe, error) {
 	recipe := Recipe{
 		Title:       title,
@@ -63,6 +66,7 @@ func (p *Provider) UpdateRecipe(ctx context.Context, id uint, title, makingTime,
 	return recipe, nil
 }
 
+// DeleteRecipe - 指定したIDのレシピを削除
 func (p *Provider) DeleteRecipe(ctx context.Context, id uint) (bool, error) {
 	recipe := Recipe{
 		ID: id,

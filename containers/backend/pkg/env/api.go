@@ -5,11 +5,13 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
+// APIConfig - APIサーバのホストとポートのコンフィグ
 type APIConfig struct {
 	Host string `split_words:"true"`
 	Port string `split_words:"true"`
 }
 
+// ReadAPIEnv - 指定したenvfileからAPIサーバに関する設定を読み込む
 func ReadAPIEnv(envFile string) (APIConfig, error) {
 	err := godotenv.Load(envFile)
 	if err != nil {

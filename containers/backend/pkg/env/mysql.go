@@ -6,6 +6,7 @@ import (
 	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/mysql"
 )
 
+// ReadMysqlEnv - 指定したenvfileからMysqlに関する設定を読み込む
 func ReadMysqlEnv(envFile string) (mysql.Config, error) {
 	err := godotenv.Load(envFile)
 	if err != nil {

@@ -6,7 +6,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-// Config TODO
+// Config - Mysqlの接続情報に関する設定
 type Config struct {
 	User      string `split_words:"true"`
 	Password  string `split_words:"true"`
@@ -47,7 +47,7 @@ func (c Config) build() Config {
 	return c
 }
 
-// Connect TODO
+// Connect - Mysqlに接続
 func Connect(c Config) (*gorm.DB, error) {
 	c = c.build()
 
