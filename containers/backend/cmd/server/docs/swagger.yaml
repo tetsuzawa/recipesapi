@@ -1,0 +1,195 @@
+basePath: /
+definitions:
+  controller.Response:
+    properties:
+      message:
+        type: string
+      recipe:
+        type: string
+      recipes:
+        type: string
+      required:
+        type: string
+    type: object
+host: TODO:80
+info:
+  contact: {}
+  description: This is a recipes API server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: VOYAGE CTO CHALLENGE API
+  version: "1.0"
+paths:
+  /recipes/:
+    get:
+      consumes:
+      - application/json
+      description: レシピを全て取得し、配列にする
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: レシピを全て取得
+    post:
+      consumes:
+      - application/json
+      description: title, making_tike, serves, ingredients, costからレシピを作成する
+      parameters:
+      - description: Title
+        in: query
+        name: title
+        required: true
+        type: string
+      - description: Making Time
+        in: query
+        name: making_time
+        required: true
+        type: string
+      - description: Serves
+        in: query
+        name: serves
+        required: true
+        type: string
+      - description: Ingredients
+        in: query
+        name: ingredients
+        required: true
+        type: string
+      - description: Cost
+        in: query
+        name: cost
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: レシピを作成する
+  /recipes/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 指定したIDのレシピを削除
+      parameters:
+      - description: Recipe ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 指定したIDのレシピを削除
+    get:
+      consumes:
+      - application/json
+      description: 指定したIDのレシピを取得
+      parameters:
+      - description: Recipe ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 指定したIDのレシピを取得
+    patch:
+      consumes:
+      - application/json
+      description: 指定したIDのレシピを更新
+      parameters:
+      - description: Recipe ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Title
+        in: query
+        name: title
+        required: true
+        type: string
+      - description: Making Time
+        in: query
+        name: making_time
+        required: true
+        type: string
+      - description: Serves
+        in: query
+        name: serves
+        required: true
+        type: string
+      - description: Ingredients
+        in: query
+        name: ingredients
+        required: true
+        type: string
+      - description: Cost
+        in: query
+        name: cost
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/controller.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controller.Response'
+      summary: 指定したIDのレシピを更新
+swagger: "2.0"
