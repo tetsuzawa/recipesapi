@@ -29,6 +29,6 @@ services:
       - 3306:3306
       - 33060:33060
     volumes:
-#      - ./containers/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./containers/db/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./containers/db/sql:/docker-entrypoint-initdb.d
 

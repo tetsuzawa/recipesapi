@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -21,10 +20,10 @@ var e = createMux()
 // @description This is a recipes API server.
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host TODO:80
+// @host voyageapi.tetsuzawa.com:80
 // @BasePath /
 func main() {
-	apiCfg, err := env.ReadAPIEnv(os.Getenv("GO_ENV"))
+	apiCfg, err := env.ReadAPIEnv()
 	if err != nil {
 		log.Println(err)
 		apiCfg.Host = "127.0.0.1"
@@ -39,7 +38,7 @@ func init() {
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
 	// Mysql
-	mysqlCfg, err := env.ReadMysqlEnv(os.Getenv("GO_ENV"))
+	mysqlCfg, err := env.ReadMysqlEnv()
 	if err != nil {
 		log.Fatalln(err)
 	}
