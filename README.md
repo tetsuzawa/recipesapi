@@ -6,7 +6,7 @@ VOYAGE  GROUP CTOからの挑戦状2020 のAPIサーバ
 - ルート  
     voyageapi.tetsuzawa.com
     
-- APIの仕様
+- APIの仕様  
     voyageapi.tetsuzawa.com/swagger/index.html
     
 ## クラウドアーキテクチャ
