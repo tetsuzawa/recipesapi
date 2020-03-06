@@ -2,13 +2,8 @@ package core
 
 import (
 	"context"
-	"fmt"
-	"math/rand"
 	"sync"
-	"time"
 )
-
-var src = rand.NewSource(time.Now().UnixNano())
 
 // MockGateway - MockDBのアダプターの構造体
 type MockGateway struct {
@@ -17,8 +12,9 @@ type MockGateway struct {
 
 // MockDB - テスト・開発用のDB
 type MockDB struct {
-	mu   sync.RWMutex
-	data map[uint]Recipe
+	mu    sync.RWMutex
+	data  map[uint]Recipe
+	index uint
 }
 
 // NewMockDB - テスト・開発用のDBのコンストラクタ
@@ -35,20 +31,9 @@ func NewMockGateway(db *MockDB) Repository {
 func (r *MockGateway) CreateRecipe(ctx context.Context, recipe Recipe) (Recipe, error) {
 	r.db.mu.Lock()
 	defer r.db.mu.Unlock()
+	r.db.index++
 
-	// 割り当て可能なIDを探す
-	var id int64
-	for {
-		id = src.Int63()
-		_, ok := r.db.data[uint(id)]
-		if !ok {
-			break
-		}
-	}
-	fmt.Println(recipe)
-	fmt.Println(id)
-
-	recipe.ID = uint(id)
+	recipe.ID = r.db.index
 	r.db.data[recipe.ID] = recipe
 
 	return recipe, nil
