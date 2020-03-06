@@ -1,7 +1,6 @@
 package env
 
 import (
-	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
 )
 
@@ -11,14 +10,10 @@ type APIConfig struct {
 	Port string `split_words:"true"`
 }
 
-// ReadAPIEnv - 指定したenvfileからAPIサーバに関する設定を読み込む
-func ReadAPIEnv(envFile string) (APIConfig, error) {
-	err := godotenv.Load(envFile)
-	if err != nil {
-		return APIConfig{}, err
-	}
+// ReadAPIEnv - APIサーバに関する設定を読み込む
+func ReadAPIEnv() (APIConfig, error) {
 	var APICfg APIConfig
-	err = envconfig.Process("API", &APICfg)
+	err := envconfig.Process("API", &APICfg)
 	if err != nil {
 		return APIConfig{}, err
 	}
