@@ -1,7 +1,9 @@
 # voyageapi
-VOYAGE  GROUP CTOからの挑戦状2020 のAPIサーバ
+VOYAGE GROUP CTOからの挑戦状2020 のAPIサーバ
 
 ## URL
+
+** 現在停止中 **
 
 - ルート  
     voyageapi.tetsuzawa.com
