@@ -1,0 +1,26 @@
+[
+  {
+    "name" : "${product}-api-container",
+    "portMappings": [
+      {
+        "hostPort": 80,
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ],
+    "cpu": ${cpu},
+    "memory": ${memory},
+    "image": "${image-url}:latest",
+    "healthCheck": {
+    "retries": 10,
+    "command": [
+      "CMD-SHELL",
+      "curl -f http://localhost/ || exit 1"
+    ],
+    "timeout": 20,
+    "interval": 60,
+    "startPeriod": 120
+  },
+    "essential": true
+  }
+]
