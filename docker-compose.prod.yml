@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: 094908652183.dkr.ecr.ap-northeast-1.amazonaws.com/voyageapi-ecr
+    image: 094908652183.dkr.ecr.ap-northeast-1.amazonaws.com/voyageapi-api
     build:
       context: ./containers/backend
       dockerfile: ./build/Dockerfile
