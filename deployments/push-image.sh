@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Check argument count
 if [ $# -ne 2 ]; then
   echo "ARGS: $#" 1>&2
@@ -14,7 +15,7 @@ ARG_REPOS_URL=$2
 $(aws ecr get-login --no-include-email --profile ${ARG_PROFILE})
 
 # Build
-docker-compose -f docekr-compose.prod.yml build
+docker-compose -f docker-compose.prod.yml build
 docker push "$ARG_REPOS_URL":latest
 
 exit 0

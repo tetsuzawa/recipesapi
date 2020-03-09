@@ -20,4 +20,3 @@ services:
         awslogs-group: voyageapi-task
         awslogs-region: ap-northeast-1
         awslogs-stream-prefix: backend
-
