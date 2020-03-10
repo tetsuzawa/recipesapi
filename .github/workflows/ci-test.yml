@@ -1,8 +1,8 @@
-name: CI Test
+name: Test
 on: pull_request
 
 jobs:
-  test-merge:
+  test:
     name: Test
     strategy:
       matrix:
@@ -19,9 +19,6 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - name: Change directory into go modules
-        run: cd ./containers/backend
-
       - name: Test
-        run: go test ./... -v
+        run: cd ./containers/backend; go test ./... -v
 
