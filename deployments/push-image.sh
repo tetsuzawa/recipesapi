@@ -8,13 +8,13 @@ fi
 
 cd $(dirname $(cd $(dirname $0); pwd))
 
-ARG_REPOS_URL=$1
+ECR_REPOSITORY_URL=$1
 
 # AWS Login
 $(aws ecr get-login --no-include-email)
 
 # Build
-ARG_REPOS_URL=$ARG_REPOS_URL docker-compose -f docker-compose.prod.yml build
-docker push "$ARG_REPOS_URL":latest
+ECR_REPOSITORY_URL=$ECR_REPOSITORY_URL docker-compose -f docker-compose.prod.yml build
+docker push "$ECR_REPOSITORY_URL":latest
 
 exit 0
