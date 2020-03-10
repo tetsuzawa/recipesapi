@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: ${ARG_REPOS_URL}
+    image: ${ECR_REPOSITORY_URL}
     build:
       context: ./containers/backend
       dockerfile: ./build/Dockerfile
