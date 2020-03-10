@@ -1,0 +1,38 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test-merge:
+    name: Test & Merge
+    strategy:
+      matrix:
+        go-version: [1.13.x]
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Change directory into go modules
+        run: cd ./containers/backend
+
+      - name: Test
+        run: go test ./... -v
+
+      - name: Merge to master branch
+        uses: devmasx/merge-branch@v1.1.0
+        with:
+          label_name: 'merged in develop'
+          target_branch: 'master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
