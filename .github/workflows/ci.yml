@@ -1,4 +1,4 @@
-name: CI
+name: Test & Merge
 on:
   push:
     branches:
@@ -21,17 +21,14 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go-version }}
-
-      - name: Change directory into go modules
-        run: cd ./containers/backend
-
+          
       - name: Test
-        run: go test ./... -v
+        run:  cd ./containers/backend; go test ./... -v
 
       - name: Merge to master branch
         uses: devmasx/merge-branch@v1.1.0
         with:
-          label_name: 'merged in develop'
+          type: now
           target_branch: 'master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
