@@ -22,14 +22,8 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-<<<<<<< Updated upstream
-      - name: Change directory into go modules
-        run: cd ./containers/backend
-
-=======
->>>>>>> Stashed changes
       - name: Test
-        run: go test ./... -v
+        run: cd ./containers/backend; go test ./... -v
 
       - name: Merge to master branch
         uses: devmasx/merge-branch@v1.1.0
