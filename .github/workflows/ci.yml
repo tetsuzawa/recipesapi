@@ -21,12 +21,9 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go-version }}
-
-      - name: Change directory into go modules
-        run: cd ./containers/backend
-
+          
       - name: Test
-        run: go test ./... -v
+        run:  cd ./containers/backend; go test ./... -v
 
       - name: Merge to master branch
         uses: devmasx/merge-branch@v1.1.0
