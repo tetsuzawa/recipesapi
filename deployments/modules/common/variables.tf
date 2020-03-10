@@ -73,42 +73,6 @@ variable "cf_certificate_arn" {
   default = "arn:aws:acm:us-east-1:xxxxxxxxxxxx:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
 }
 
-variable "db_name" {
-  type        = string
-  default     = "mydb"
-  description = "Name of DB"
-}
-
-variable "db_user" {
-  type        = string
-  default     = "user"
-  description = "User name of DB"
-}
-
-variable "db_pass" {
-  type        = string
-  default     = "pass"
-  description = "Password of DB"
-}
-
-variable "db_storage_size" {
-  type        = string
-  default     = "20"
-  description = "Storage size of DB"
-}
-
-variable "front_cpu" {
-  type        = string
-  default     = "256"
-  description = "CPU size of frontend task"
-}
-
-variable "front_memory" {
-  type        = string
-  default     = "512"
-  description = "Memory size of frontend task"
-}
-
 variable "api_cpu" {
   type        = string
   default     = "256"
@@ -119,4 +83,52 @@ variable "api_memory" {
   type        = string
   default     = "512"
   description = "Memory size of api task"
+}
+
+variable "mysql_db_storage_size" {
+  type        = string
+  default     = "20"
+  description = "Storage size of DB"
+}
+
+variable "mysql_db_name" {
+  type        = string
+  default     = "mydb"
+  description = "Name of DB"
+}
+
+variable "mysql_user" {
+  type        = string
+  default     = "user"
+  description = "User name of DB"
+}
+
+variable "mysql_password" {
+  type        = string
+  default     = "pass"
+  description = "Password of DB"
+}
+
+variable "mysql_protocol" {
+  type = string
+}
+
+variable "mysql_charset" {
+  type = string
+}
+
+variable "mysql_loc" {
+  type = string
+}
+
+variable "mysql_parse_time" {
+  type = string
+}
+
+variable "api_host" {
+  type = string
+}
+
+variable "api_port" {
+  type = string
 }

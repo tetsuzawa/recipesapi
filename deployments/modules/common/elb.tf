@@ -24,7 +24,7 @@ resource "aws_lb_target_group" "api" {
 
   health_check {
     interval            = 60
-    path                = "/"
+    path                = "/recipes/"
     protocol            = "HTTP"
     timeout             = 20
     unhealthy_threshold = 4

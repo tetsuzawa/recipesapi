@@ -3,10 +3,11 @@ data "template_file" "api" {
   template = file("${path.root}/task-definitions/api-task-definition.json")
 
   vars = {
-    product   = var.name
-    image-url = aws_ecr_repository.api.repository_url
-    cpu       = var.api_cpu
-    memory    = var.api_memory
+    product              = var.name
+    image-url            = aws_ecr_repository.api.repository_url
+    cpu                  = var.api_cpu
+    memory               = var.api_memory
+    cloudwatch_log_group = aws_cloudwatch_log_group.ecs.name
   }
 }
 
@@ -21,6 +22,6 @@ resource "aws_ecs_task_definition" "api" {
   memory                   = var.api_memory
 
   provisioner "local-exec" {
-    command = "./push-image.sh ${var.name} ${aws_ecr_repository.api.repository_url}"
+    command = "./push-image.sh ${aws_ecr_repository.api.repository_url}"
   }
 }

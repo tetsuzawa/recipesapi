@@ -17,14 +17,14 @@ resource "aws_db_parameter_group" "rds_params" {
 
 resource "aws_db_instance" "rds" {
   identifier              = "${var.name}-rds"
-  allocated_storage       = var.db_storage_size
+  allocated_storage       = var.mysql_db_storage_size
   storage_type            = "gp2"
   engine                  = "mysql"
   engine_version          = "8.0"
   instance_class          = "db.t2.micro"
-  name                    = var.db_name
-  username                = var.db_user
-  password                = var.db_pass
+  name                    = var.mysql_db_name
+  username                = var.mysql_user
+  password                = var.mysql_password
   parameter_group_name    = aws_db_parameter_group.rds_params.name
   db_subnet_group_name    = aws_db_subnet_group.rds_subnet_group.name
   vpc_security_group_ids  = [aws_security_group.rds.id]
@@ -32,6 +32,10 @@ resource "aws_db_instance" "rds" {
   multi_az                = false
   backup_retention_period = 7
   skip_final_snapshot     = true
+
+  lifecycle {
+    ignore_changes = [password]
+  }
 
   tags = {
     Name    = "${var.name}-rds"
