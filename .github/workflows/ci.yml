@@ -1,4 +1,4 @@
-name: CI
+name: Test & Merge
 on:
   push:
     branches:
@@ -22,9 +22,12 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
+<<<<<<< Updated upstream
       - name: Change directory into go modules
         run: cd ./containers/backend
 
+=======
+>>>>>>> Stashed changes
       - name: Test
         run: go test ./... -v
 
