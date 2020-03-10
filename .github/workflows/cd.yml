@@ -22,10 +22,4 @@ jobs:
       - name: Build container
         env:
           ECR_REPOSITORY_URL: ${{ secrets.AWS_ECR_REPOSITORY_URL}}
-        run: ECR_REPOSITORY_URL=$ECR_REPOSITORY_URL docker-compose -f docker-compose.prod.yml build
-
-      - name: Deploy container to ECR
-        env:
-          ECR_REPOSITORY_URL: ${{ secrets.AWS_ECR_REPOSITORY_URL}}
-        run: docker push $ECR_REPOSITORY_URL:latest
-
+        run: cd deployments; sh push-image.sh $ECR_REPOSITORY_URL
