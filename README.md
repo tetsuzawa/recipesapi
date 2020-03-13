@@ -1,6 +1,6 @@
 # voyageapi
   
-![Test](https://github.com/tetsuzawa/voyageapi/workflows/Test/badge.svg)
+![Test](https://github.com/tetsuzawa/voyageapi/workflows/Test/badge.svg) 
 ![Build](https://github.com/tetsuzawa/voyageapi/workflows/Build/badge.svg)
 
 
