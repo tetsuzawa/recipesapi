@@ -1,4 +1,4 @@
-name: Test & Merge
+name: test
 on:
   push:
     branches-ignore:
@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  test-merge:
+  test:
     name: Test & Merge
     strategy:
       matrix:
