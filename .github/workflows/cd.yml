@@ -23,3 +23,13 @@ jobs:
         env:
           ECR_REPOSITORY_URL: ${{ secrets.AWS_ECR_REPOSITORY_URL}}
         run: cd deployments; sh push-image.sh $ECR_REPOSITORY_URL
+
+      - name: Sleep for 60 seconds
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '60s'
+
+      - name: Health check
+        uses: wei/curl@master
+        with:
+          args: ${{ secrets.APPLICATION_URL }}
