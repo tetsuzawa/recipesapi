@@ -1,4 +1,3 @@
-=
 # voyageapi
 
 <div align="center">
