@@ -1,7 +1,8 @@
 name: Test & Merge
 on:
   push:
-    branches:
+    branches-ignore:
+      - master
       - develop
 
 jobs:
@@ -25,11 +26,11 @@ jobs:
       - name: Test
         run:  cd ./containers/backend; go test ./... -v
 
-      - name: Merge to master branch
+      - name: Merge to develop branch
         uses: devmasx/merge-branch@v1.1.0
         with:
           type: now
-          target_branch: 'master'
+          target_branch: 'develop'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
