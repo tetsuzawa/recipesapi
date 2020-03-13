@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  test-merge:
+  test:
     name: Test & Merge
     strategy:
       matrix:
