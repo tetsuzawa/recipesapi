@@ -14,7 +14,7 @@ on:
     types:
       - submitted
   status: {}
-  
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
