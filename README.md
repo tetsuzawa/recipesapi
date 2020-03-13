@@ -1,9 +1,9 @@
 # voyageapi
 
-<p align="center">
+<div align="center">
 ![Test](https://github.com/tetsuzawa/voyageapi/workflows/test/badge.svg)
 ![Build](https://github.com/tetsuzawa/voyageapi/workflows/build/badge.svg)
-</p>
+</div>
 
 VOYAGE GROUP CTOからの挑戦状2020 のAPIサーバ
 
