@@ -1,7 +1,7 @@
-# voyageapi
+# recipesapi
   
-![Test](https://github.com/tetsuzawa/voyageapi/workflows/Test/badge.svg) 
-![Build](https://github.com/tetsuzawa/voyageapi/workflows/Build/badge.svg)
+![Test](https://github.com/tetsuzawa/recipesapi/workflows/Test/badge.svg) 
+![Build](https://github.com/tetsuzawa/recipesapi/workflows/Build/badge.svg)
 
 
 VOYAGE GROUP CTOからの挑戦状2020 のAPIサーバ
@@ -11,10 +11,10 @@ VOYAGE GROUP CTOからの挑戦状2020 のAPIサーバ
 ** 現在停止中 **
 
 - ルート  
-    voyageapi.tetsuzawa.com
+    recipesapi.tetsuzawa.com
     
 - APIの仕様  
-    voyageapi.tetsuzawa.com/swagger/index.html
+    recipesapi.tetsuzawa.com/swagger/index.html
     
 ## クラウドアーキテクチャ
 

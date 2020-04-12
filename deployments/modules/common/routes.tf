@@ -3,7 +3,6 @@ data "aws_route_table" "rtb" {
   route_table_id = var.vpc_default_route_table_id
 }
 
-
 resource "aws_default_route_table" "default_route_table" {
   default_route_table_id = data.aws_route_table.rtb.id
 

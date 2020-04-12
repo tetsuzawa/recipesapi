@@ -2,7 +2,7 @@ package env
 
 import (
 	"github.com/kelseyhightower/envconfig"
-	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/mysql"
+	"github.com/tetsuzawa/recipesapi/containers/backend/pkg/mysql"
 )
 
 // ReadMysqlEnv - 指定したenvfileからMysqlに関する設定を読み込む

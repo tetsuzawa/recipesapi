@@ -6,8 +6,8 @@ import (
 	"github.com/google/wire"
 	"github.com/jinzhu/gorm"
 
-	"github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/controller"
-	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
+	"github.com/tetsuzawa/recipesapi/containers/backend/cmd/server/controller"
+	"github.com/tetsuzawa/recipesapi/containers/backend/internal/core"
 )
 
 // InitializeControllers - 依存管理. wireでDIする.
