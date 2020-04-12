@@ -16,7 +16,7 @@ import (
 	"github.com/tetsuzawa/recipesapi/containers/backend/pkg/mysql"
 )
 
-// @title VOYAGE CTO CHALLENGE API
+// @title Recipes CRUD API
 // @version 1.0
 // @description This is a recipes API server.
 // @license.name Apache 2.0

@@ -4,16 +4,14 @@
 ![Build](https://github.com/tetsuzawa/recipesapi/workflows/Build/badge.svg)
 
 
-VOYAGE GROUP CTOからの挑戦状2020 のAPIサーバ
+料理のレシピをCRUD処理するAPIサーバです。
 
 ## URL
-
-** 現在停止中 **
 
 - ルート  
     recipesapi.tetsuzawa.com
     
-- APIの仕様  
+- APIの仕様 (swagger) 
     recipesapi.tetsuzawa.com/swagger/index.html
     
 ## クラウドアーキテクチャ
