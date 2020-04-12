@@ -10,7 +10,7 @@
         },
         "version": "1.0"
     },
-    "host": "voyageapi.tetsuzawa.com:80",
+    "host": "recipesapi.tetsuzawa.com:80",
     "basePath": "/",
     "paths": {
         "/recipes/": {

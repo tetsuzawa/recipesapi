@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: voyageapi_backend:latest
+    image: recipesapi_backend:latest
     build:
       context: ./containers/backend
       dockerfile: ./build/Dockerfile.dev

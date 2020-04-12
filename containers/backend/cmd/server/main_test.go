@@ -10,8 +10,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/controller"
-	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
+	"github.com/tetsuzawa/recipesapi/containers/backend/cmd/server/controller"
+	"github.com/tetsuzawa/recipesapi/containers/backend/internal/core"
 )
 
 func InitializeMockControllers(db *core.MockDB) *controller.Controllers {

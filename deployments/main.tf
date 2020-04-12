@@ -31,8 +31,8 @@ variable "mysql_password" {}
 
 terraform {
   backend "s3" {
-    bucket  = "voyageapi"
-    key     = "voyageapi/terraform.tfstate"
+    bucket  = "recipesapi"
+    key     = "recipesapi/terraform.tfstate"
     region  = "ap-northeast-1"
     profile = "admin"
   }

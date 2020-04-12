@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/tetsuzawa/voyageapi/containers/backend/internal/core"
+	"github.com/tetsuzawa/recipesapi/containers/backend/internal/core"
 )
 
 // Controller - リクエストを処理しアプリケーションコアに渡す

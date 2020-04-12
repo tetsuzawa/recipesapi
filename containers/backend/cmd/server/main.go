@@ -10,18 +10,18 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/swaggo/echo-swagger"
 
-	"github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/controller"
-	_ "github.com/tetsuzawa/voyageapi/containers/backend/cmd/server/docs"
-	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/env"
-	"github.com/tetsuzawa/voyageapi/containers/backend/pkg/mysql"
+	"github.com/tetsuzawa/recipesapi/containers/backend/cmd/server/controller"
+	_ "github.com/tetsuzawa/recipesapi/containers/backend/cmd/server/docs"
+	"github.com/tetsuzawa/recipesapi/containers/backend/pkg/env"
+	"github.com/tetsuzawa/recipesapi/containers/backend/pkg/mysql"
 )
 
-// @title VOYAGE CTO CHALLENGE API
+// @title Recipes CRUD API
 // @version 1.0
 // @description This is a recipes API server.
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host voyageapi.tetsuzawa.com:80
+// @host recipesapi.tetsuzawa.com:80
 // @BasePath /
 func main() {
 	e := createMux()
