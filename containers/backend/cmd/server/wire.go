@@ -22,7 +22,7 @@ func InitializeControllers(db *gorm.DB) *controller.Controllers {
 }
 
 /*
-// InitializeControllers - 依存管理. wireでDIする.
+// InitializeControllers - 依存管理. wireでDIする (Mock).
 // Mock
 func InitializeControllers(db *core.MockDB) *controller.Controllers {
 	wire.Build(
