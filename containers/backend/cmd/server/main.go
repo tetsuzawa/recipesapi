@@ -35,8 +35,6 @@ func main() {
 	ctrls := InitializeControllers(db)
 	handler := newHandler(e, ctrls)
 
-	//log.Printf("Listening on %s:%s", apiCfg.Host, apiCfg.Port)
-	//e.Logger.Fatal(e.Start(fmt.Sprintf("%s:%s", apiCfg.Host, apiCfg.Port)))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", apiCfg.Host, apiCfg.Port), handler))
 }
 
@@ -59,10 +57,8 @@ func init() {
 
 func createMux() *echo.Echo {
 	e := echo.New()
-
 	e.Use(middleware.Recover())
 	e.Use(middleware.Logger())
-
 	return e
 }
 
