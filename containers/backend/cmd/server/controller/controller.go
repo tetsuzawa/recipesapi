@@ -27,6 +27,18 @@ type Response struct {
 	Recipes  []core.Recipe `json:"recipes,omitempty"`
 }
 
+// HandleCreateRecipes - Ping用のルート.
+// @Summary Ping用のルート.
+// @Description Getでアクセスすると"OK"を返す
+// @Accept json
+// @Produce json
+// @Success 200 {object} Response
+// @Router /ping [get]
+func (ctrl *Controller) HandlePing(c echo.Context) error {
+	resp := Response{Message: "OK"}
+	return c.JSON(http.StatusOK, resp)
+}
+
 // HandleCreateRecipes - レシピを作成する.
 // @Summary レシピを作成する
 // @Description title, making_tike, serves, ingredients, costからレシピを作成する

@@ -63,13 +63,19 @@ func createMux() *echo.Echo {
 }
 
 func newHandler(e *echo.Echo, ctrls *controller.Controllers) http.Handler {
+	//ping
+	e.GET("/ping", ctrls.Ctrl.HandlePing)
+
+	//api
 	recipes := e.Group("/recipes")
 	recipes.POST("/", ctrls.Ctrl.HandleCreateRecipe)
 	recipes.GET("/", ctrls.Ctrl.HandleReadRecipes)
 	recipes.GET("/:id", ctrls.Ctrl.HandleReadRecipe)
 	recipes.PATCH("/:id", ctrls.Ctrl.HandleUpdateRecipe)
 	recipes.DELETE("/:id", ctrls.Ctrl.HandleDeleteRecipe)
+
 	// swagger
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
+
 	return e
 }
